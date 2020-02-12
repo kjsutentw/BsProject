@@ -1,0 +1,195 @@
+2020-02-10 00:01:19.429  INFO 69504 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-10 00:01:19.458  INFO 69504 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-10 00:01:19.503  INFO 69504 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 44 ms
+2020-02-10 00:02:36.545  INFO 69504 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-10 00:02:36.550  INFO 69504 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-02-10 00:02:36.561  INFO 69504 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-02-10 00:02:59.310  INFO 63704 --- [main] myspringboot.demo.DemoApplication        : Starting DemoApplication on WIN10-907031752 with PID 63704 (D:\self\myspringboot\target\classes started by Administrator in D:\self\myspringboot)
+2020-02-10 00:02:59.315  INFO 63704 --- [main] myspringboot.demo.DemoApplication        : No active profile set, falling back to default profiles: default
+2020-02-10 00:03:01.877  INFO 63704 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-10 00:03:02.047  INFO 63704 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 151ms. Found 3 repository interfaces.
+2020-02-10 00:03:03.286  INFO 63704 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-10 00:03:04.428  INFO 63704 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-10 00:03:04.450  INFO 63704 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-10 00:03:04.451  INFO 63704 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-02-10 00:03:04.896  INFO 63704 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-10 00:03:04.899  INFO 63704 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5445 ms
+2020-02-10 00:03:05.107  INFO 63704 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-02-10 00:03:05.661  INFO 63704 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-02-10 00:03:06.082  INFO 63704 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-02-10 00:03:06.300  INFO 63704 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
+2020-02-10 00:03:06.680  INFO 63704 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-02-10 00:03:07.547  INFO 63704 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-02-10 00:03:09.325  INFO 63704 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-02-10 00:03:09.339  INFO 63704 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-02-10 00:03:11.480  WARN 63704 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-02-10 00:03:12.435  INFO 63704 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-02-10 00:03:12.994  INFO 63704 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-10 00:03:13.651  INFO 63704 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-10 00:03:13.688  INFO 63704 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-10 00:03:13.760  INFO 63704 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-10 00:03:14.185  INFO 63704 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-10 00:03:14.190  INFO 63704 --- [main] myspringboot.demo.DemoApplication        : Started DemoApplication in 15.941 seconds (JVM running for 23.253)
+2020-02-10 00:03:25.875  INFO 63704 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-10 00:03:25.876  INFO 63704 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-10 00:03:25.901  INFO 63704 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 24 ms
+2020-02-10 00:14:46.068  INFO 63704 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-10 00:14:46.084  INFO 63704 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-02-10 00:14:46.147  INFO 63704 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-02-10 22:19:36.323  INFO 89060 --- [main] myspringboot.demo.DemoApplication        : Starting DemoApplication on WIN10-907031752 with PID 89060 (D:\self\myspringboot\target\classes started by Administrator in D:\self\myspringboot)
+2020-02-10 22:19:36.342  INFO 89060 --- [main] myspringboot.demo.DemoApplication        : No active profile set, falling back to default profiles: default
+2020-02-10 22:19:46.395  INFO 89060 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-10 22:19:46.703  INFO 89060 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 251ms. Found 3 repository interfaces.
+2020-02-10 22:19:47.426  INFO 89060 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-10 22:19:49.090  INFO 89060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-10 22:19:49.112  INFO 89060 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-10 22:19:49.113  INFO 89060 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-02-10 22:19:49.411  INFO 89060 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-10 22:19:49.412  INFO 89060 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 12564 ms
+2020-02-10 22:19:49.824  INFO 89060 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-02-10 22:19:50.268  INFO 89060 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-02-10 22:19:50.751  INFO 89060 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-02-10 22:19:50.952  INFO 89060 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
+2020-02-10 22:19:51.433  INFO 89060 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-02-10 22:19:52.056  INFO 89060 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-02-10 22:19:53.153  INFO 89060 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-02-10 22:19:53.179  INFO 89060 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-02-10 22:19:54.547  WARN 89060 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-02-10 22:19:55.047  INFO 89060 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-02-10 22:19:55.226  INFO 89060 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-10 22:19:55.899  INFO 89060 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-10 22:19:55.952  INFO 89060 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-10 22:19:55.989  INFO 89060 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-10 22:19:56.290  INFO 89060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-10 22:19:56.293  INFO 89060 --- [main] myspringboot.demo.DemoApplication        : Started DemoApplication in 22.608 seconds (JVM running for 28.997)
+2020-02-10 22:20:12.189  INFO 89060 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-10 22:20:12.190  INFO 89060 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-10 22:20:12.203  INFO 89060 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-02-10 22:51:13.889  INFO 89060 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-10 22:51:13.895  INFO 89060 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-02-10 22:51:13.918  INFO 89060 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-02-10 22:51:59.728  INFO 86776 --- [main] myspringboot.demo.DemoApplication        : Starting DemoApplication on WIN10-907031752 with PID 86776 (D:\self\myspringboot\target\classes started by Administrator in D:\self\myspringboot)
+2020-02-10 22:51:59.731  INFO 86776 --- [main] myspringboot.demo.DemoApplication        : No active profile set, falling back to default profiles: default
+2020-02-10 22:52:00.742  INFO 86776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-10 22:52:00.826  INFO 86776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74ms. Found 3 repository interfaces.
+2020-02-10 22:52:01.152  INFO 86776 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-10 22:52:01.579  INFO 86776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-10 22:52:01.590  INFO 86776 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-10 22:52:01.590  INFO 86776 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-02-10 22:52:01.707  INFO 86776 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-10 22:52:01.707  INFO 86776 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1917 ms
+2020-02-10 22:52:01.784  INFO 86776 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-02-10 22:52:02.037  INFO 86776 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-02-10 22:52:02.177  INFO 86776 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-02-10 22:52:02.274  INFO 86776 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
+2020-02-10 22:52:02.388  INFO 86776 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-02-10 22:52:02.628  INFO 86776 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-02-10 22:52:03.310  INFO 86776 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-02-10 22:52:03.319  INFO 86776 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-02-10 22:52:04.134  WARN 86776 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-02-10 22:52:04.485  INFO 86776 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-02-10 22:52:04.648  INFO 86776 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-10 22:52:04.958  INFO 86776 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-10 22:52:04.997  INFO 86776 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-10 22:52:05.024  INFO 86776 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-10 22:52:05.342  INFO 86776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-10 22:52:05.344  INFO 86776 --- [main] myspringboot.demo.DemoApplication        : Started DemoApplication in 6.247 seconds (JVM running for 7.739)
+2020-02-10 22:52:55.452  INFO 86776 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-10 22:52:55.453  INFO 86776 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-10 22:52:55.479  INFO 86776 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 25 ms
+2020-02-10 22:54:18.840  INFO 86776 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-10 22:54:18.842  INFO 86776 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-02-10 22:54:18.849  INFO 86776 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-02-10 22:54:24.864  INFO 67760 --- [main] myspringboot.demo.DemoApplication        : Starting DemoApplication on WIN10-907031752 with PID 67760 (D:\self\myspringboot\target\classes started by Administrator in D:\self\myspringboot)
+2020-02-10 22:54:24.869  INFO 67760 --- [main] myspringboot.demo.DemoApplication        : No active profile set, falling back to default profiles: default
+2020-02-10 22:54:26.042  INFO 67760 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-10 22:54:26.119  INFO 67760 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68ms. Found 3 repository interfaces.
+2020-02-10 22:54:26.423  INFO 67760 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-10 22:54:26.904  INFO 67760 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-10 22:54:26.914  INFO 67760 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-10 22:54:26.914  INFO 67760 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-02-10 22:54:27.035  INFO 67760 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-10 22:54:27.035  INFO 67760 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2116 ms
+2020-02-10 22:54:27.119  INFO 67760 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-02-10 22:54:27.359  INFO 67760 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-02-10 22:54:27.507  INFO 67760 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-02-10 22:54:27.606  INFO 67760 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
+2020-02-10 22:54:27.738  INFO 67760 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-02-10 22:54:28.004  INFO 67760 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-02-10 22:54:28.662  INFO 67760 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-02-10 22:54:28.669  INFO 67760 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-02-10 22:54:29.445  WARN 67760 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-02-10 22:54:29.616  INFO 67760 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-02-10 22:54:29.777  INFO 67760 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-10 22:54:30.036  INFO 67760 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-10 22:54:30.052  INFO 67760 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-10 22:54:30.077  INFO 67760 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-10 22:54:30.318  INFO 67760 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-10 22:54:30.321  INFO 67760 --- [main] myspringboot.demo.DemoApplication        : Started DemoApplication in 5.921 seconds (JVM running for 7.159)
+2020-02-10 22:54:35.133  INFO 67760 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-10 22:54:35.134  INFO 67760 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-10 22:54:35.146  INFO 67760 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-02-10 22:57:05.004  INFO 67760 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-10 22:57:05.006  INFO 67760 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-02-10 22:57:05.014  INFO 67760 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-02-10 22:57:11.013  INFO 88448 --- [main] myspringboot.demo.DemoApplication        : Starting DemoApplication on WIN10-907031752 with PID 88448 (D:\self\myspringboot\target\classes started by Administrator in D:\self\myspringboot)
+2020-02-10 22:57:11.020  INFO 88448 --- [main] myspringboot.demo.DemoApplication        : No active profile set, falling back to default profiles: default
+2020-02-10 22:57:12.212  INFO 88448 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-10 22:57:12.294  INFO 88448 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73ms. Found 3 repository interfaces.
+2020-02-10 22:57:12.631  INFO 88448 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-10 22:57:13.034  INFO 88448 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-10 22:57:13.043  INFO 88448 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-10 22:57:13.043  INFO 88448 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-02-10 22:57:13.171  INFO 88448 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-10 22:57:13.172  INFO 88448 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2096 ms
+2020-02-10 22:57:13.252  INFO 88448 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-02-10 22:57:13.505  INFO 88448 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-02-10 22:57:13.654  INFO 88448 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-02-10 22:57:13.747  INFO 88448 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
+2020-02-10 22:57:13.886  INFO 88448 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-02-10 22:57:14.126  INFO 88448 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-02-10 22:57:14.792  INFO 88448 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-02-10 22:57:14.799  INFO 88448 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-02-10 22:57:15.574  WARN 88448 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-02-10 22:57:15.763  INFO 88448 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-02-10 22:57:15.917  INFO 88448 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-10 22:57:16.188  INFO 88448 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-10 22:57:16.206  INFO 88448 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-10 22:57:16.232  INFO 88448 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-10 22:57:16.434  INFO 88448 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-10 22:57:16.436  INFO 88448 --- [main] myspringboot.demo.DemoApplication        : Started DemoApplication in 5.962 seconds (JVM running for 7.0)
+2020-02-10 22:57:55.362  INFO 88448 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-10 22:57:55.362  INFO 88448 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-10 22:57:55.376  INFO 88448 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-02-10 23:21:09.989  INFO 88448 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-10 23:21:09.992  INFO 88448 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-02-10 23:21:10.045  INFO 88448 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-02-10 23:21:16.969  INFO 82224 --- [main] myspringboot.demo.DemoApplication        : Starting DemoApplication on WIN10-907031752 with PID 82224 (D:\self\myspringboot\target\classes started by Administrator in D:\self\myspringboot)
+2020-02-10 23:21:17.012  INFO 82224 --- [main] myspringboot.demo.DemoApplication        : No active profile set, falling back to default profiles: default
+2020-02-10 23:21:18.530  INFO 82224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-10 23:21:18.617  INFO 82224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79ms. Found 3 repository interfaces.
+2020-02-10 23:21:18.970  INFO 82224 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-10 23:21:19.367  INFO 82224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-10 23:21:19.377  INFO 82224 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-10 23:21:19.378  INFO 82224 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-02-10 23:21:19.521  INFO 82224 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-10 23:21:19.521  INFO 82224 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2431 ms
+2020-02-10 23:21:19.612  INFO 82224 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-02-10 23:21:19.842  INFO 82224 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-02-10 23:21:20.006  INFO 82224 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-02-10 23:21:20.111  INFO 82224 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
+2020-02-10 23:21:20.219  INFO 82224 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-02-10 23:21:20.443  INFO 82224 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-02-10 23:21:21.140  INFO 82224 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-02-10 23:21:21.148  INFO 82224 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-02-10 23:21:21.900  WARN 82224 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-02-10 23:21:22.109  INFO 82224 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-02-10 23:21:22.268  INFO 82224 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-10 23:21:22.537  INFO 82224 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-10 23:21:22.554  INFO 82224 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-10 23:21:22.578  INFO 82224 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-10 23:21:22.782  INFO 82224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-10 23:21:22.784  INFO 82224 --- [main] myspringboot.demo.DemoApplication        : Started DemoApplication in 6.294 seconds (JVM running for 7.596)
+2020-02-10 23:23:22.911  INFO 82224 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-10 23:23:22.912  INFO 82224 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-10 23:23:22.924  INFO 82224 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
