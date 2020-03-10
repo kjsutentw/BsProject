@@ -23,17 +23,21 @@ public class BudgetFrom implements Serializable {
     @Column(name="project_id",nullable = false)
     private String projectId;
 
-    private Integer equipmentFee;
+    private Integer equipmentFee;//设备费
     private Integer materialCost;//材料费
-    private Integer conferenceFee;
-    private Integer TravelFee;
-    private Integer professionalClassFee;
+    private Integer conferenceFee;//会议费
+    private Integer TravelFee;//差旅费
+    private Integer professionalClassFee;//专业课题建设费
     private Integer pageFee;
-    private Integer labourServicesFee;
-    private Integer ExpertConsultationFee;
+    private Integer labourServicesFee;//劳务费
+    private Integer ExpertConsultationFee;//专家咨询费
     private Integer dataFee;
     private Integer resourceBaseFee;
     private Integer otherFee;
     private Integer sumFee;//经费合计
+    private String createUser;//创建表单的人
+    private Long createTime;
+    @Column(name="status",nullable = false)
+    private String status;//表单状态
 
 }

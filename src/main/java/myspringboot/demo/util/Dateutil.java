@@ -1,6 +1,7 @@
 package myspringboot.demo.util;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class Dateutil {
 
@@ -21,4 +22,15 @@ public class Dateutil {
         String str=year+"年"+month+"月"+day1+"日"+""+hour+":"+min+":"+sec;
         return  str;
     }
+
+    /**
+     * 获取当前时间戳
+     * @return
+     */
+    public static  Long getTime(){
+        Long time=new Date().getTime();
+        return time;
+    }
+
+
 }

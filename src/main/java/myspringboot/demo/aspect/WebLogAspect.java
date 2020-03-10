@@ -37,6 +37,7 @@ public class WebLogAspect {
             }
             try{
                 LOG.info("接口请求数据:"+ GsonUtil.toJson(arg));
+                Nsqlutil.sqlInject((String)arg);
             }catch (Exception e){
                 continue;
             }

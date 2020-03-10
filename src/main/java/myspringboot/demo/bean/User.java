@@ -33,9 +33,4 @@ public class User {
     private String userAuthority;
     private String memo;
 
-
-
-
-
-
 }

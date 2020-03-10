@@ -18,5 +18,8 @@ public interface BudgetFromExtendService {
 
     List<BudgetFromExtend> selectAll();
 
+    //增添扩展预算表单的字段
+    boolean addExden(String sql);
+
 
 }

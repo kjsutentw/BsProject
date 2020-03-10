@@ -5,10 +5,11 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
-public class BudgetFromExtendResult {
+public class BudgetFromExtendResult implements Serializable {
     private List<Result> list;
     private BudgetFrom budgetFrom;
 

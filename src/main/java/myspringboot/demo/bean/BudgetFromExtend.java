@@ -3,6 +3,7 @@ package myspringboot.demo.bean;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * 记录扩展字段信息
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "budget_from_extend")
-public class BudgetFromExtend {
+public class BudgetFromExtend implements Serializable {
 
    @Id
    @Column(name="id",nullable = false)

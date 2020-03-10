@@ -6,6 +6,7 @@ import myspringboot.demo.service.BudgetFromExtendService;
 import myspringboot.demo.service.BudgetFromService;
 import myspringboot.demo.service.UserService;
 import myspringboot.demo.util.Dateutil;
+import myspringboot.demo.util.ExcelFileUtil;
 import myspringboot.demo.util.Nsqlutil;
 import myspringboot.demo.util.RRException;
 import org.junit.Test;
@@ -15,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 
@@ -51,19 +53,30 @@ public class DemoApplicationTests {
     @Test
     public void runtest4()  {
 
+//        new ExcelFileUtil().ReadFile("C:\\Users\\Administrator\\Desktop\\Excel\\专业建设表.xlsx");
 
-
-
-       //' or 1=1#
-        String str="'  1=1#";
-        try {
-            str= Nsqlutil.sqlInject(str);
-        } catch (RRException e) {
-            e.printStackTrace();
+        String type="";
+        switch ("5.0"){
+            case "5.0":
+                type="1";
+                break;
+            case "4.0":
+                type="2";
+                break;
+            case "3.0":
+                type="2";
+                break;
+            case "2.0":
+                type="3";
+                break;
+            case "1.0":
+                type="4";
+                break;
+            default:type="2";
         }
-        System.out.println(str);
-//       BudgetFromExtendResult budgetFromExtendResult= budgetFromExtendService.selectByPid(str);
-//        System.out.println(budgetFromExtendResult);
+
+
+        System.out.println(type);
 
 
     }

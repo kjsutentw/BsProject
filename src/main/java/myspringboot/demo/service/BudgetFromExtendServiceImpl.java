@@ -62,18 +62,30 @@ public class BudgetFromExtendServiceImpl implements BudgetFromExtendService {
 
 
 
+
+
     @Override
     public  BudgetFromExtendResult selectByPid(String punid) {
+        BudgetFromExtendResult result2;
+        Object o= budgetFromExtendRepository.findByPunid(punid);
+
+        if(o==null){
+            result2=new BudgetFromExtendResult();
+            return result2;
+        }
 
         List<BudgetFromExtend> budgetFromExtendList= this.selectAll();
 
         String[] strings=new String[budgetFromExtendList.size()];
+        String[] strNames=new String[budgetFromExtendList.size()];
 
         String sql="select";
         for(int i=0;i<budgetFromExtendList.size();i++){
             BudgetFromExtend budgetFromExtend=budgetFromExtendList.get(i);
             String str=budgetFromExtend.getFieldName();
+            String strName=budgetFromExtend.getName();
             strings[i]=str;
+            strNames[i]=strName;
             if(i==budgetFromExtendList.size()-1){
                 sql+=" "+str+"";
             }else {
@@ -83,24 +95,29 @@ public class BudgetFromExtendServiceImpl implements BudgetFromExtendService {
         }
 
 
-        sql+=" from budgetfrom_extend_other where punid='"+punid+"' ";
+        sql+=" from budgetfrom_extend_other where punid='"+punid+"'  ";
         System.out.println(sql);
-       BudgetFromExtendResult result = jdbcTemplate.queryForObject(sql, new RowMapper<BudgetFromExtendResult>() {
-            @Override
-            public BudgetFromExtendResult mapRow(ResultSet rs, int i) throws SQLException {
-                BudgetFromExtendResult result=new BudgetFromExtendResult();
-                List<BudgetFromExtendResult.Result> listResult=new ArrayList<>();
-                for(int j=0;j<strings.length;j++){
-                    BudgetFromExtendResult.Result result1=new  BudgetFromExtendResult.Result();
-                    System.out.println(strings[j]);
-                    result1.setFieldValue(rs.getString(strings[j]));
-                    result1.setFieldName(strings[j]);
-                    listResult.add(result1);
-                }
-                result.setList(listResult);
-                return result;
-            }
-        });
+
+
+        BudgetFromExtendResult result = jdbcTemplate.queryForObject(sql, new RowMapper<BudgetFromExtendResult>() {
+                    @Override
+                    public BudgetFromExtendResult mapRow(ResultSet rs, int i) throws SQLException {
+
+                            BudgetFromExtendResult result=new BudgetFromExtendResult();
+                            List<BudgetFromExtendResult.Result> listResult=new ArrayList<>();
+                            for(int j=0;j<strings.length;j++){
+                                BudgetFromExtendResult.Result result1=new  BudgetFromExtendResult.Result();
+                                result1.setFieldValue(rs.getString(strings[j]));
+                                result1.setFieldName(strings[j]);
+                                result1.setName(strNames[j]);
+                                listResult.add(result1);
+                            }
+                            result.setList(listResult);
+                            return result;
+
+                    }
+                });
+
 
         return result;
     }
@@ -130,6 +147,18 @@ public class BudgetFromExtendServiceImpl implements BudgetFromExtendService {
         return  list;
     }
 
+    @Override
+    public boolean addExden(String sql) {
+
+        try {
+            jdbcTemplate.execute(sql);
+            return true;
+        }catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+
+    }
 
 
 }

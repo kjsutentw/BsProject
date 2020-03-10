@@ -9,6 +9,7 @@ import myspringboot.demo.bean.Result;
 import myspringboot.demo.bean.User;
 import myspringboot.demo.service.UserService;
 import myspringboot.demo.util.JsonUtil;
+import myspringboot.demo.util.Nsqlutil;
 import myspringboot.demo.util.ReturnUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -35,6 +36,7 @@ public class UserController {
     public Object login(@ApiParam(required = true, name = "登录用户名和密码", value = "登录用户名和密码")@RequestBody JSONObject jsonpObject){
 
         Result result=new Result();
+
 
         User user= JsonUtil.Tran(jsonpObject,"submitdata",User.class);
         String username=user.getUsername();

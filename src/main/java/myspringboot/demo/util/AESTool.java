@@ -44,6 +44,10 @@ public class AESTool {
         Encoder encoder = Base64.getEncoder();
         String result = encoder.encodeToString(encrypted);
 
+
+        //byte[] encrypted = cipher.doFinal(sSrc.getBytes("utf-8"));
+        //        return new BASE64Encoder().encode(encrypted);// 此处使用BASE64做转码。
+
         return result;// 此处使用BASE64做转码。
     }
 
