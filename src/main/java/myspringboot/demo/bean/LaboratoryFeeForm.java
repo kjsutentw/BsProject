@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "t_ laboratory")
+@Table(name = "t_laboratory_form")
 public class LaboratoryFeeForm {
 
     @Id
@@ -15,7 +15,7 @@ public class LaboratoryFeeForm {
     private Integer id;
 
     //续建
-    private String continueBuild;
+    private String conBuild;
 
     //年份
     private String formYear;
@@ -28,7 +28,7 @@ public class LaboratoryFeeForm {
     private String renovation;
 
     //设计费
-    private String design;
+    private String designFee;
 
     private String otherFee;
     //经费合计

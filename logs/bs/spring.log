@@ -1,99 +1,37 @@
-2020-03-10 00:06:25.368  INFO 14456 --- [main] myspringboot.demo.DemoApplication        : Starting DemoApplication on WIN10-907031752 with PID 14456 (D:\self\myspringboot\target\classes started by Administrator in D:\self\myspringboot)
-2020-03-10 00:06:25.379  INFO 14456 --- [main] myspringboot.demo.DemoApplication        : No active profile set, falling back to default profiles: default
-2020-03-10 00:06:33.150  INFO 14456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-03-10 00:06:33.554  INFO 14456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 279ms. Found 4 repository interfaces.
-2020-03-10 00:06:35.103  INFO 14456 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-03-10 00:06:37.325  INFO 14456 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-03-10 00:06:37.335  INFO 14456 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-03-10 00:06:37.337  INFO 14456 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
-2020-03-10 00:06:37.582  INFO 14456 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-03-10 00:06:37.583  INFO 14456 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11596 ms
-2020-03-10 00:06:37.816  INFO 14456 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-03-10 00:06:38.428  INFO 14456 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-03-10 00:06:39.322  INFO 14456 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-03-10 00:06:39.819  INFO 14456 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
-2020-03-10 00:06:41.012  INFO 14456 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-03-10 00:06:42.269  INFO 14456 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2020-03-10 00:06:44.554  WARN 14456 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create table t_ laboratory (id integer not null, continue_build varchar(255), create_time bigint, create_user varchar(255), design varchar(255), equipment_fee varchar(255), ext varchar(255), form_year varchar(255), memo varchar(255), other_fee varchar(255), renovation varchar(255), status varchar(255), sum_fee integer, primary key (id)) engine=MyISAM" via JDBC Statement
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table t_ laboratory (id integer not null, continue_build varchar(255), create_time bigint, create_user varchar(255), design varchar(255), equipment_fee varchar(255), ext varchar(255), form_year varchar(255), memo varchar(255), other_fee varchar(255), renovation varchar(255), status varchar(255), sum_fee integer, primary key (id)) engine=MyISAM" via JDBC Statement
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:277) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:71) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:207) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:320) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1249) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378) ~[spring-orm-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1799) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) ~[spring-context-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.2.1.RELEASE.jar:5.2.1.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.2.1.RELEASE.jar:2.2.1.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) ~[spring-boot-2.2.1.RELEASE.jar:2.2.1.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.2.1.RELEASE.jar:2.2.1.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.2.1.RELEASE.jar:2.2.1.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) ~[spring-boot-2.2.1.RELEASE.jar:2.2.1.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) ~[spring-boot-2.2.1.RELEASE.jar:2.2.1.RELEASE]
-	at myspringboot.demo.DemoApplication.main(DemoApplication.java:12) ~[classes/:na]
-Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'laboratory (id integer not null, continue_build varchar(255), create_time bigint' at line 1
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490) ~[na:na]
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404) ~[mysql-connector-java-5.1.38.jar:5.1.38]
-	at com.mysql.jdbc.Util.getInstance(Util.java:387) ~[mysql-connector-java-5.1.38.jar:5.1.38]
-	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:939) ~[mysql-connector-java-5.1.38.jar:5.1.38]
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3878) ~[mysql-connector-java-5.1.38.jar:5.1.38]
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3814) ~[mysql-connector-java-5.1.38.jar:5.1.38]
-	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2478) ~[mysql-connector-java-5.1.38.jar:5.1.38]
-	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2625) ~[mysql-connector-java-5.1.38.jar:5.1.38]
-	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2547) ~[mysql-connector-java-5.1.38.jar:5.1.38]
-	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2505) ~[mysql-connector-java-5.1.38.jar:5.1.38]
-	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:840) ~[mysql-connector-java-5.1.38.jar:5.1.38]
-	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:740) ~[mysql-connector-java-5.1.38.jar:5.1.38]
-	at com.alibaba.druid.filter.FilterChainImpl.statement_execute(FilterChainImpl.java:2958) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterAdapter.statement_execute(FilterAdapter.java:2473) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterEventAdapter.statement_execute(FilterEventAdapter.java:188) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterChainImpl.statement_execute(FilterChainImpl.java:2956) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.execute(StatementProxyImpl.java:147) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidPooledStatement.execute(DruidPooledStatement.java:619) ~[druid-1.1.10.jar:1.1.10]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.4.8.Final.jar:5.4.8.Final]
-	... 34 common frames omitted
-
-2020-03-10 00:06:44.555  INFO 14456 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-03-10 00:06:44.572  INFO 14456 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-03-10 00:06:47.405  WARN 14456 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-03-10 00:06:47.916  INFO 14456 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-03-10 00:06:48.312  INFO 14456 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-10 00:06:49.111  INFO 14456 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-03-10 00:06:49.160  INFO 14456 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-03-10 00:06:49.197  INFO 14456 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-03-10 00:06:49.627  INFO 14456 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addBudgetFromUsingPOST_1
-2020-03-10 00:06:49.633  INFO 14456 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: queryFieldUsingPOST_1
-2020-03-10 00:06:49.643  INFO 14456 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateStatusUsingPOST_1
-2020-03-10 00:06:49.646  INFO 14456 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectBudgetFromUsingPOST_1
-2020-03-10 00:06:49.799  INFO 14456 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-10 00:06:49.803  INFO 14456 --- [main] myspringboot.demo.DemoApplication        : Started DemoApplication in 27.561 seconds (JVM running for 34.142)
-2020-03-10 00:07:24.552  INFO 14456 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-10 00:07:24.554  INFO 14456 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-03-10 00:07:24.587  INFO 14456 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 33 ms
-2020-03-10 00:35:36.156  INFO 14456 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-03-10 00:35:36.159  INFO 14456 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-03-10 00:35:36.168  INFO 14456 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-03-13 00:08:26.801  INFO 8344 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-03-13 00:08:27.241  INFO 8344 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-03-13 00:08:27.252  INFO 8344 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-03-13 00:08:42.677  INFO 4472 --- [main] myspringboot.demo.DemoApplication        : Starting DemoApplication on WIN10-907031752 with PID 4472 (D:\self\myspringboot\target\classes started by Administrator in D:\self\myspringboot)
+2020-03-13 00:08:42.681  INFO 4472 --- [main] myspringboot.demo.DemoApplication        : No active profile set, falling back to default profiles: default
+2020-03-13 00:08:43.779  INFO 4472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-03-13 00:08:43.871  INFO 4472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84ms. Found 5 repository interfaces.
+2020-03-13 00:08:44.199  INFO 4472 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-13 00:08:44.629  INFO 4472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-13 00:08:44.639  INFO 4472 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-13 00:08:44.639  INFO 4472 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-03-13 00:08:44.752  INFO 4472 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-13 00:08:44.753  INFO 4472 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1994 ms
+2020-03-13 00:08:44.835  INFO 4472 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-03-13 00:08:45.099  INFO 4472 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-03-13 00:08:45.250  INFO 4472 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-03-13 00:08:45.347  INFO 4472 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
+2020-03-13 00:08:45.474  INFO 4472 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-03-13 00:08:45.732  INFO 4472 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-03-13 00:08:46.061  INFO 4472 --- [main] org.hibernate.tuple.PojoInstantiator     : HHH000182: No default (no-argument) constructor for class: myspringboot.demo.bean.BudgetFormSum (class must be instantiated by Interceptor)
+2020-03-13 00:08:46.467  INFO 4472 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-03-13 00:08:46.474  INFO 4472 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-03-13 00:08:47.390  WARN 4472 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-03-13 00:08:47.562  INFO 4472 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-03-13 00:08:47.725  INFO 4472 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-13 00:08:47.992  INFO 4472 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-13 00:08:48.009  INFO 4472 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-13 00:08:48.039  INFO 4472 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-13 00:08:48.233  INFO 4472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addBudgetFromUsingPOST_1
+2020-03-13 00:08:48.235  INFO 4472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: queryFieldUsingPOST_1
+2020-03-13 00:08:48.243  INFO 4472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateStatusUsingPOST_1
+2020-03-13 00:08:48.247  INFO 4472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectBudgetFromUsingPOST_1
+2020-03-13 00:08:48.301  INFO 4472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-13 00:08:48.304  INFO 4472 --- [main] myspringboot.demo.DemoApplication        : Started DemoApplication in 6.121 seconds (JVM running for 7.296)
+2020-03-13 00:08:50.604  INFO 4472 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-03-13 00:08:50.607  INFO 4472 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-03-13 00:08:50.614  INFO 4472 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

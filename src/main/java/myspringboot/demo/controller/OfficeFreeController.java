@@ -4,12 +4,15 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import myspringboot.demo.bean.BudgetFormSum;
 import myspringboot.demo.bean.OfficeFeeFrom;
 import myspringboot.demo.bean.Result;
 import myspringboot.demo.bean.UserAuthority;
+import myspringboot.demo.service.FormSumService;
 import myspringboot.demo.service.OfficeFeeService;
 import myspringboot.demo.util.Dateutil;
 import myspringboot.demo.util.ReturnUtil;
+import myspringboot.demo.util.UuidUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.util.StringUtils;
@@ -24,6 +27,10 @@ public class OfficeFreeController {
 
     @Autowired
     OfficeFeeService officeFeeService;
+
+    //总预算
+    @Autowired
+    FormSumService formSumService;
 
     /**
      * 分页查询我的办公费用表
@@ -66,6 +73,10 @@ public class OfficeFreeController {
         budgetFrom.setStatus(UserAuthority.Not_EXAMINE_APPROVE);//设置成未审批状态
         officeFeeService.addBudgetFrom(budgetFrom);
 
+        BudgetFormSum budgetFormSum=new BudgetFormSum(UuidUtil.getRandomUuid(),String.valueOf(budgetFrom.getId()),budgetFrom.getSumFee(),budgetFrom.getCreateTime(),""
+                ,budgetFrom.getCreateUser(),"office",UserAuthority.Not_EXAMINE_APPROVE
+                );
+        formSumService.insert(budgetFormSum);
         result.setCode(200);
         return result;
 

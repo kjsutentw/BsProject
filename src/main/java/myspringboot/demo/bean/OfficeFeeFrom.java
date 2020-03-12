@@ -30,6 +30,8 @@ public class OfficeFeeFrom implements Serializable {
 
     private String memo;
 
+    private Integer sumFee;//合计
+
     private String ext;//扩展字段(json字符串形式)
 
     private String createUser;//创建表单的人
