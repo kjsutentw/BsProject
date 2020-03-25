@@ -28,4 +28,6 @@ public interface BudgetFromRepository extends JpaRepository<BudgetFrom,Integer> 
     @Modifying
     @Query(nativeQuery =true,value =" update budget_from set status=?2 where project_id=?1")
     Integer updateStatus(String punid, String status);
+
+
 }

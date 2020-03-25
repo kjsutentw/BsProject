@@ -19,4 +19,6 @@ public interface OfficeFreeRepository extends JpaRepository<OfficeFeeFrom,Intege
     @Modifying
     @Query(nativeQuery =true,value =" update t_office set status=?2 where id=?1")
     void updateStatus(String id, String status);
+
+    OfficeFeeFrom findById(String id);
 }

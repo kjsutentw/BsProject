@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import myspringboot.demo.asm.Constants;
 import myspringboot.demo.bean.BudgetFormSum;
 import myspringboot.demo.bean.OfficeFeeFrom;
 import myspringboot.demo.bean.Result;
@@ -28,7 +29,7 @@ public class OfficeFreeController {
     @Autowired
     OfficeFeeService officeFeeService;
 
-    //总预算
+
     @Autowired
     FormSumService formSumService;
 
@@ -67,16 +68,17 @@ public class OfficeFreeController {
 
         String jsonString = JSON.toJSONString(jsonpObject);
         OfficeFeeFrom budgetFrom=JSONObject.parseObject(jsonString,OfficeFeeFrom.class);
-       if(StringUtils.isEmpty(budgetFrom.getName()))
+       if(StringUtils.isEmpty(budgetFrom.getName())){
            return null;
+       }
+
+        budgetFrom.setId(UuidUtil.getRandomUuid());
         budgetFrom.setCreateTime(Dateutil.getTime());
-        budgetFrom.setStatus(UserAuthority.Not_EXAMINE_APPROVE);//设置成未审批状态
+        //设置成未审批状态
+        budgetFrom.setStatus(UserAuthority.Not_EXAMINE_APPROVE);
         officeFeeService.addBudgetFrom(budgetFrom);
 
-        BudgetFormSum budgetFormSum=new BudgetFormSum(UuidUtil.getRandomUuid(),String.valueOf(budgetFrom.getId()),budgetFrom.getSumFee(),budgetFrom.getCreateTime(),""
-                ,budgetFrom.getCreateUser(),"office",UserAuthority.Not_EXAMINE_APPROVE
-                );
-        formSumService.insert(budgetFormSum);
+
         result.setCode(200);
         return result;
 
