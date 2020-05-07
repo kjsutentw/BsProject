@@ -2,14 +2,20 @@ package myspringboot.demo.controller;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import myspringboot.demo.bean.Result;
 import myspringboot.demo.util.Nsqlutil;
 import myspringboot.demo.util.RRException;
 
-import org.springframework.data.repository.query.Param;
+
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping("/business-app")
+@RequestMapping("/pr")
 public class TestController {
 
     @ApiOperation(value = "测试防sql注入", notes = "测试")
@@ -27,4 +33,40 @@ public class TestController {
         return bo;
 
     }
+
+    @ApiOperation(value = "nginx转发验证码错误重现", notes = "测试")
+    @PostMapping("/test/login")
+    public Object test2(){
+
+        Result result=new Result();
+
+        RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
+        HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
+        System.out.println( request.getSession().getId());
+        System.out.println("post");
+
+
+        return result;
+
+    }
+
+    @GetMapping("/test/code")
+    public Object test3(){
+
+        Result result=new Result();
+
+        RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
+        HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
+        request.getSession().setAttribute("id","123456" );
+        System.out.println( request.getSession().getId());
+
+
+        result.setData(3663);
+        return result;
+
+    }
+
+
+
+
 }

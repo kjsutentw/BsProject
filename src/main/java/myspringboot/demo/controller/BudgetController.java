@@ -10,11 +10,13 @@ import myspringboot.demo.bean.UserAuthority;
 import myspringboot.demo.service.BudgetFromService;
 import myspringboot.demo.service.FormSumService;
 import myspringboot.demo.service.OfficeFeeService;
+import myspringboot.demo.util.Dateutil;
 import myspringboot.demo.util.ReturnUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("/api/budget")
@@ -56,8 +58,20 @@ public class BudgetController {
 
         Page<BudgetFormSum> budgetFromPage=  formSumService.selectAllBystatus(currentPage,pageSize,status);
         List<BudgetFormSum> budgetFroms=budgetFromPage.getContent();
+        List<JSONObject> jsonObjectList=new ArrayList<>();
+        for(BudgetFormSum budgetFormSum:budgetFroms){
+            String str=JSONObject.toJSONString(budgetFormSum);
+            JSONObject jsonObject=JSONObject.parseObject(str);
 
-        rspJson.put("data",budgetFroms);
+            Long time=budgetFormSum.getCreateTime();
+            String times=Dateutil.timestampToString(time.intValue());
+            jsonObject.put("createTime",times);
+            jsonObjectList.add(jsonObject);
+        }
+
+
+
+        rspJson.put("data",jsonObjectList);
         result.setCode(200);
         result.setCount(1000);
         result.setData(ReturnUtil.returnMsg(rspJson));

@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 
 public interface UserService {
 
-    User getByName(String username);
+    User getByName(String username,String type);
 
     User get(String username, String password);
 

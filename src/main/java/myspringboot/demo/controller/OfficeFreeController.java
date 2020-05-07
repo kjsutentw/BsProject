@@ -4,8 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import myspringboot.demo.asm.Constants;
-import myspringboot.demo.bean.BudgetFormSum;
 import myspringboot.demo.bean.OfficeFeeFrom;
 import myspringboot.demo.bean.Result;
 import myspringboot.demo.bean.UserAuthority;
@@ -22,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/officeForm")
+@RequestMapping("/api/budget/officeForm")
 @CrossOrigin
 public class OfficeFreeController {
 

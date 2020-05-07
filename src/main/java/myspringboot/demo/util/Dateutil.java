@@ -1,5 +1,10 @@
 package myspringboot.demo.util;
 
+
+
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,9 +33,39 @@ public class Dateutil {
      * @return
      */
     public static  Long getTime(){
-        Long time= System.currentTimeMillis()*10000;;
+        Long time= (Long) (System.currentTimeMillis() / 1000);
 
         return time;
+    }
+
+    /**
+     * 将时间戳转换为时间格式
+     * @return
+     */
+    public static String timestampToString(Integer time){
+        //int转long时，先进行转型再进行计算，否则会是计算结束后在转型
+        long temp = (long)time*1000;
+        Timestamp ts = new Timestamp(temp);
+        String tsStr = "";
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            //方法一
+            tsStr = dateFormat.format(ts);
+            System.out.println(tsStr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return tsStr;
+    }
+
+
+
+    public static void main(String[] args) {
+        int lo=1585643913;
+        System.out.println( Dateutil.timestampToString(lo));
+        System.out.println( Dateutil.getTime());
+
+
     }
 
 

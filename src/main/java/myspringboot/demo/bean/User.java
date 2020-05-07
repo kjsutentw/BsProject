@@ -33,4 +33,13 @@ public class User {
     private String userAuthority;
     private String memo;
 
+    public boolean isAdmin(User user){
+
+        if("admin".equals(user.getUsername())){
+            return true;
+        }
+        return false;
+
+    }
+
 }

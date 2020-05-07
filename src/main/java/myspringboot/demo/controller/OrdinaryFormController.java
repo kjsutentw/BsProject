@@ -10,6 +10,7 @@ import myspringboot.demo.service.BudgetFromService;
 import myspringboot.demo.util.ReturnUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class OrdinaryFormController {
     BudgetFromExtendService budgetFromExtendService;
 
 
+    @PreAuthorize("hasAuthority('budget')")
     @ApiOperation(value = "分页查询预算表单", notes = "查询预算表单")
     @PostMapping("/or/select")
     public Object selectBudgetFrom(@ApiParam(required = true, name = "分页查询预算表单", value = "分页查询预算表单") @RequestBody JSONObject jsonpObject){

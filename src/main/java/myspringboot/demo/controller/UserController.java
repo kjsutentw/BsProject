@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import myspringboot.demo.bean.Result;
 import myspringboot.demo.bean.User;
+import myspringboot.demo.service.JwtAuthService;
 import myspringboot.demo.service.UserService;
 import myspringboot.demo.util.JsonUtil;
 import myspringboot.demo.util.Nsqlutil;
@@ -21,7 +22,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class UserController {
 
 
@@ -29,23 +30,29 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private JwtAuthService jwtService;
+
 
 
     @ApiOperation(value = "用户登录APi", notes = "登录")
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public Object login(@ApiParam(required = true, name = "登录用户名和密码", value = "登录用户名和密码")@RequestBody JSONObject jsonpObject){
+    public Object login(@ApiParam(required = true, name = "登录用户名", value = "登录用户名")@RequestParam String username
+    ,@ApiParam(required = true, name = "登录密码", value = "登录密码")@RequestParam String password,
+                        @ApiParam(required = true, name = "权限", value = "用户权限类型")@RequestParam String authority
+    ){
 
         Result result=new Result();
 
-
-        User user= JsonUtil.Tran(jsonpObject,"submitdata",User.class);
-        String username=user.getUsername();
-
         if(userService.isExist(username)){
-           User user1=userService.getByName(user.getUsername());
-           if(user1.getPassword().equals(user.getPassword())){
+           User user1=userService.getByName(username,authority);
+           if(user1==null){
+               result.setCode(400);
+               result.setMsg("不存在用户名");
+               return result;
+           }
+           if(user1.getPassword().equals(password)){
                User userResult=user1;
-               userResult.setPassword("xxxxx");
                userResult.setId(0000);
                result.setData(userResult);
                result.setCode(200);
@@ -53,6 +60,17 @@ public class UserController {
            }else {
                result.setMsg("密码效验错误");
            }
+
+
+           String jwt=jwtService.login(username,password);
+           if(jwt==null){
+               result.setMsg("登录认证失败");
+               result.setCode(400);
+           }else {
+               result.setCode(200);
+               result.setData(jwt);
+           }
+
            return result;
 
         }else {
@@ -60,10 +78,14 @@ public class UserController {
         }
 
         result.setCode(400);
-        System.out.println(user.getPassword());
-
 
         return result;
+    }
+
+    @RequestMapping(value = "/refresh")
+    public Object refresh(@RequestHeader("${jwt.header}") String token){
+        String newToken=jwtService.refreshToken(token);
+        return Result.seccess(newToken);
     }
 
 

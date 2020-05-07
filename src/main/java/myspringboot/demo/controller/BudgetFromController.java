@@ -7,14 +7,13 @@ import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import myspringboot.demo.asm.Constants;
 import myspringboot.demo.bean.*;
 import myspringboot.demo.service.BudgetFromExtendService;
 import myspringboot.demo.service.BudgetFromService;
-import myspringboot.demo.service.FormSumService;
 import myspringboot.demo.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -42,7 +41,7 @@ public class BudgetFromController {
 
 
 
-
+    @PreAuthorize("hasAuthority('budget')")
     @ApiOperation(value = "通过项目编号查找预算表单", notes = "通过项目编号查找预算表单")
     @PostMapping("/select/byid")
     public Object getBudgetFromByProjectId(@ApiParam(required = true, name = "Json格式带有pid", value = "项目编号pid") @RequestBody JSONObject jsonpObject){
@@ -95,7 +94,7 @@ public class BudgetFromController {
     }
 
 
-
+    @PreAuthorize("hasAuthority('budget')")
     @ApiOperation(value = "添加预算表单", notes = "添加预算表单")
     @PostMapping("/addfrom")
     public Object addBudgetFrom(@ApiParam(required = true, name = "预算表单数据", value = "预算表单数据") @RequestBody JSONObject jsonpObject){
@@ -135,7 +134,7 @@ public class BudgetFromController {
     }
 
 
-
+    @PreAuthorize("hasAuthority('budget')")
     @ApiOperation(value = "修改预算表单", notes = "修改预算表单")
     @PostMapping("/updatafrom")
     public Object updataBudgetFrom(@ApiParam(required = true, name = "修改表单数据", value = "修改表单数据") @RequestBody JSONObject jsonpObject){
@@ -155,6 +154,7 @@ public class BudgetFromController {
         return result;
     }
 
+    @PreAuthorize("hasAuthority('budget')")
     @ApiOperation(value = "分页查询专业预算表单", notes = "查询预算表单")
     @PostMapping("/select")
     public Object selectBudgetFrom(@ApiParam(required = true, name = "分页查询预算表单", value = "分页查询预算表单") @RequestBody JSONObject jsonpObject){
