@@ -2,9 +2,11 @@ package myspringboot.demo.util;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import myspringboot.demo.asm.BudgetConstants;
 import myspringboot.demo.asm.Constants;
 import myspringboot.demo.bean.BudgetFormSum;
 import myspringboot.demo.bean.UserAuthority;
+import myspringboot.demo.bean.log.BudgetLog;
 
 /**
  * 公共的方法调用类
@@ -70,5 +72,56 @@ public class OtherUtil {
 
         return budgetFormSum;
 
+    }
+
+    /**
+     * 注入到预算总表 提交状态
+     */
+    public static BudgetLog setAddLog(String punid){
+        BudgetLog budgetLog=new BudgetLog();
+        budgetLog.setUnid(UuidUtil.getRandomUuid());
+        budgetLog.setPunid(punid);
+        budgetLog.setBudgetSort(BudgetConstants.ADD_SORT);
+        budgetLog.setLog(BudgetConstants.COMMIT);
+        return budgetLog;
+
+    }
+
+    /**
+     * 注入到预算总表 撤回状态
+     */
+    public static BudgetLog setLogWithdraw(String punid){
+        BudgetLog budgetLog=new BudgetLog();
+        budgetLog.setUnid(UuidUtil.getRandomUuid());
+        budgetLog.setPunid(punid);
+        budgetLog.setBudgetSort(BudgetConstants.WITHDRAW_SORT);
+        budgetLog.setLog(BudgetConstants.WITHDRAW);
+        return budgetLog;
+    }
+
+
+    /**
+     * 注入到预算总表 审批成功状态
+     */
+    public static BudgetLog setApproveOK(String punid){
+        BudgetLog budgetLog=new BudgetLog();
+        budgetLog.setUnid(UuidUtil.getRandomUuid());
+        budgetLog.setPunid(punid);
+        budgetLog.setBudgetSort(BudgetConstants.APPROVE_SORT);
+        budgetLog.setLog(BudgetConstants.APPROVE_OK);
+        return budgetLog;
+    }
+
+
+    /**
+     * 注入到预算总表 审批失败状态
+     */
+    public static BudgetLog setApproveNO(String punid){
+        BudgetLog budgetLog=new BudgetLog();
+        budgetLog.setUnid(UuidUtil.getRandomUuid());
+        budgetLog.setPunid(punid);
+        budgetLog.setBudgetSort(BudgetConstants.APPROVE_SORT);
+        budgetLog.setLog(BudgetConstants.APPROVE_NO);
+        return budgetLog;
     }
 }

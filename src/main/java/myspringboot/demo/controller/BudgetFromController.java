@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiParam;
 import myspringboot.demo.bean.*;
 import myspringboot.demo.service.BudgetFromExtendService;
 import myspringboot.demo.service.BudgetFromService;
+import myspringboot.demo.service.BudgetLogService;
 import myspringboot.demo.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,6 +39,9 @@ public class BudgetFromController {
 
     @Autowired
     BudgetFromExtendService budgetFromExtendService;
+
+    @Autowired
+    BudgetLogService budgetLogService;
 
 
 
@@ -122,6 +126,7 @@ public class BudgetFromController {
         boolean bo= budgetFromExtendService.addExden(sql);
         System.out.println(isok+"基本"+bo+"扩展");
         if(bo&&isok){
+            budgetLogService.add(OtherUtil.setAddLog(punid));
             result.setCode(200);
             return result;
         }
@@ -259,6 +264,9 @@ public class BudgetFromController {
 
        boolean bo= budgetFromService.updataStatus(punid,status);
        if(bo){
+           if(UserAuthority.WITHDRAW.equals(status)){
+               budgetLogService.add(OtherUtil.setLogWithdraw(punid));
+           }
            result.setCode(200);
            return result;
        }

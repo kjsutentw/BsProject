@@ -8,9 +8,11 @@ import myspringboot.demo.bean.BudgetFormSum;
 import myspringboot.demo.bean.Result;
 import myspringboot.demo.bean.UserAuthority;
 import myspringboot.demo.service.BudgetFromService;
+import myspringboot.demo.service.BudgetLogService;
 import myspringboot.demo.service.FormSumService;
 import myspringboot.demo.service.OfficeFeeService;
 import myspringboot.demo.util.Dateutil;
+import myspringboot.demo.util.OtherUtil;
 import myspringboot.demo.util.ReturnUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -33,6 +35,9 @@ public class BudgetController {
 
     @Autowired
     OfficeFeeService officeFeeService;
+
+    @Autowired
+    BudgetLogService budgetLogService;
 
     @ApiOperation(value = "预算月图表数据", notes = "支出")
     @GetMapping("/select/moneyMoth")
@@ -127,6 +132,7 @@ public class BudgetController {
         boolean bo= formSumService.updataStatus(id, UserAuthority.GO,projectType,option,consenter);
 
         if(!bo){
+            budgetLogService.add(OtherUtil.setApproveOK(id));
             result.setMsg("提交失败");
             result.setCode(400);
             return result;
@@ -154,6 +160,7 @@ public class BudgetController {
         boolean bo= formSumService.updataStatus(id, UserAuthority.RETURN,projectType,"","");
 
         if(!bo){
+            budgetLogService.add(OtherUtil.setApproveNO(id));
             result.setMsg("退回失败");
             result.setCode(400);
             return result;
