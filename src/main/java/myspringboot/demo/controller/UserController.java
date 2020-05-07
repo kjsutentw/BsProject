@@ -7,14 +7,19 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import myspringboot.demo.bean.Result;
 import myspringboot.demo.bean.User;
+import myspringboot.demo.jwt.JwtTokenUtil;
+import myspringboot.demo.jwt.JwtUserDetailsServiceImpl;
 import myspringboot.demo.service.UserService;
 import myspringboot.demo.util.JsonUtil;
 import myspringboot.demo.util.Nsqlutil;
 import myspringboot.demo.util.ReturnUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -28,6 +33,12 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private JwtUserDetailsServiceImpl jwtUserDetailsService;
+
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
 
 
 
@@ -53,6 +64,16 @@ public class UserController {
            }else {
                result.setMsg("密码效验错误");
            }
+
+
+           UserDetails userDetails=jwtUserDetailsService.loadUserByUsername(username);
+           String token=jwtTokenUtil.generateToken(userDetails);
+
+           result.setCode(200);
+           result.setData(token);
+
+
+
            return result;
 
         }else {

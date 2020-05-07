@@ -4,14 +4,13 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Data
-@Entity
-@Table(name = "t_ laboratory")
+//@Data
+//@Entity
+//@Table(name = "t_ laboratory")
 public class LaboratoryFeeForm {
 
     @Id
     @Column(name="id",nullable = false)
-    @GeneratedValue
     private Integer id;
 
     //续建

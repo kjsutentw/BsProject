@@ -6,8 +6,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
 
 //get,set,toString,全参数，无参的构造方法
 
@@ -32,5 +35,12 @@ public class User {
     private String createTime;
     private String userAuthority;
     private String memo;
+
+    private String roles;
+
+    public List<String> getroles(){
+        return null;
+    }
+
 
 }

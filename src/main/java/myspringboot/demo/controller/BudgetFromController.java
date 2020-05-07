@@ -53,12 +53,12 @@ public class BudgetFromController {
 
         //这里还要验证是否很多文字，是否是数字
         if(pid.equals("")){
-            result.setCode(200);
+            result.setCode(400);
             return result;
         }
 
         result.setCode(200);
-        result.setData(ReturnUtil.returnMsg(budgetFrom));
+        result.setData("正常返回");
         return result;
     }
 
