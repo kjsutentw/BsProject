@@ -1,20 +1,21 @@
 package myspringboot.demo.controller;
 
 
-import cn.hutool.poi.excel.ExcelUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import myspringboot.demo.asm.BudgetConstants;
+import myspringboot.demo.asm.Constants;
 import myspringboot.demo.bean.*;
+import myspringboot.demo.bean.log.BudgetLog;
 import myspringboot.demo.service.BudgetFromExtendService;
 import myspringboot.demo.service.BudgetFromService;
-import myspringboot.demo.util.Dateutil;
-import myspringboot.demo.util.ExcelFileUtil;
-import myspringboot.demo.util.OtherUtil;
-import myspringboot.demo.util.ReturnUtil;
+import myspringboot.demo.service.BudgetLogService;
+import myspringboot.demo.service.FormSumService;
+import myspringboot.demo.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -23,14 +24,16 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/budget")
 @CrossOrigin
-@Api(value = "BudgetFromService-api", description = "预算表单接口", tags = {"BudgetFromService"})
+@Api(value = "BudgetFromService-api", tags = {"BudgetFromService"})
+/**
+ * @author wzx
+ */
 public class BudgetFromController {
 
 
@@ -40,10 +43,15 @@ public class BudgetFromController {
     @Autowired
     BudgetFromExtendService budgetFromExtendService;
 
+    @Autowired
+    BudgetLogService budgetLogService;
+
+
+
 
     @ApiOperation(value = "通过项目编号查找预算表单", notes = "通过项目编号查找预算表单")
     @PostMapping("/select/byid")
-    public Object getBudgetFromByProjectID(@ApiParam(required = true, name = "Json格式带有pid", value = "项目编号pid") @RequestBody JSONObject jsonpObject){
+    public Object getBudgetFromByProjectId(@ApiParam(required = true, name = "Json格式带有pid", value = "项目编号pid") @RequestBody JSONObject jsonpObject){
 
         Result result=new Result();
 
@@ -54,7 +62,6 @@ public class BudgetFromController {
         //这里还要验证是否很多文字，是否是数字
         if(pid.equals("")){
             result.setCode(400);
-            return result;
         }
 
         result.setCode(200);
@@ -65,15 +72,20 @@ public class BudgetFromController {
 
 
     @PostMapping("/selectExtend/bypid")
-    public Object getBudgetFromExtendByProjectID( @RequestBody JSONObject jsonpObject){
+    public Object getBudgetFromExtendByProjectId( @RequestBody JSONObject jsonpObject){
 
         Result result=new Result();
         JSONObject rspjson=new JSONObject();
 
-        String pid= jsonpObject.getString("pid");
+
+        Object obj=jsonpObject.getString("pid");
+        String pid="";
+        if(obj!=null){
+           pid=(String)obj;
+        }
 
         //这里还要验证是否很多文字，是否是数字
-        if(pid.equals("")){
+        if("".equals(pid)){
             result.setCode(200);
             return result;
         }
@@ -89,25 +101,34 @@ public class BudgetFromController {
 
 
 
-
-
     @ApiOperation(value = "添加预算表单", notes = "添加预算表单")
     @PostMapping("/addfrom")
     public Object addBudgetFrom(@ApiParam(required = true, name = "预算表单数据", value = "预算表单数据") @RequestBody JSONObject jsonpObject){
         Result result=new Result();
 
-        JSONObject datajson= jsonpObject.getJSONObject("budgetfromData");
+
+        JSONObject datajson = jsonpObject.getJSONObject("budgetfromData");
+        JSONArray extendDataJson=jsonpObject.getJSONArray("extenData");
+        if(datajson==null||extendDataJson==null){
+            result.setMsg("参数有误");
+            return result;
+        }
+
+        //添加基本表单数据
         String jsonString = JSON.toJSONString(datajson);
         BudgetFrom budgetFrom=JSONObject.parseObject(jsonString,BudgetFrom.class);
         budgetFrom.setCreateTime(Dateutil.getTime());
-        budgetFrom.setStatus(UserAuthority.Not_EXAMINE_APPROVE);//设置成未审批状态
+        budgetFrom.setStatus(UserAuthority.Not_EXAMINE_APPROVE);
         boolean isok=budgetFromService.addBudgetFrom(budgetFrom);
-        JSONArray extendDataJson= jsonpObject.getJSONArray("extenData");
+
+
+        //添加扩展字段数据
         String punid=budgetFrom.getProjectId();
         String sql= OtherUtil.buildSql("budgetfrom_extend_other",extendDataJson,punid);
-
         boolean bo= budgetFromExtendService.addExden(sql);
         if(bo&&isok){
+            BudgetLog budgetLog=OtherUtil.setAddLog(punid);
+            budgetLogService.add(budgetLog);
             result.setCode(200);
             return result;
         }
@@ -115,7 +136,6 @@ public class BudgetFromController {
 
         result.setCode(400);
         result.setMsg("添加失败");
-
         return result;
     }
 
@@ -140,7 +160,7 @@ public class BudgetFromController {
         return result;
     }
 
-    @ApiOperation(value = "分页查询预算表单", notes = "查询预算表单")
+    @ApiOperation(value = "分页查询专业预算表单", notes = "查询预算表单")
     @PostMapping("/select")
     public Object selectBudgetFrom(@ApiParam(required = true, name = "分页查询预算表单", value = "分页查询预算表单") @RequestBody JSONObject jsonpObject){
 
@@ -173,7 +193,7 @@ public class BudgetFromController {
         String jsonString = JSON.toJSONString(datajson);
         BudgetFromExtend budgetFromExtend=JSONObject.parseObject(jsonString,BudgetFromExtend.class);
 
-        if(budgetFromExtend.getFieldDefault().equals("")||budgetFromExtend.getFieldDefault()==null){
+        if("".equals(budgetFromExtend.getFieldDefault())||budgetFromExtend.getFieldDefault()==null){
             budgetFromExtend.setFieldDefault("null");
         }
         boolean addSuccess= budgetFromExtendService.inserFiled(budgetFromExtend);
@@ -244,6 +264,10 @@ public class BudgetFromController {
 
        boolean bo= budgetFromService.updataStatus(punid,status);
        if(bo){
+           if("00011".equals(status)){
+            BudgetLog budgetLog= OtherUtil.setLogWithdraw(punid);
+            budgetLogService.add(budgetLog);
+           }
            result.setCode(200);
            return result;
        }
@@ -263,6 +287,7 @@ public class BudgetFromController {
 
         boolean bo= budgetFromService.deleteForm(punid);
         if(bo){
+            budgetLogService.deletes(punid);
             result.setCode(200);
             return result;
         }

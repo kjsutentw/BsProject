@@ -1,18 +1,22 @@
 package myspringboot.demo.service;
 
+import myspringboot.demo.asm.Constants;
+import myspringboot.demo.bean.BudgetFormSum;
 import myspringboot.demo.bean.BudgetFrom;
+import myspringboot.demo.bean.UserAuthority;
 import myspringboot.demo.dao.repository.BudgetFromRepository;
+import myspringboot.demo.dao.repository.FormSumRepository;
+import myspringboot.demo.util.OtherUtil;
+import myspringboot.demo.util.UuidUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.sql.PreparedStatement;
 import java.util.List;
 
 @Transactional
@@ -25,6 +29,9 @@ public class BudgetFromServiceImpl implements BudgetFromService{
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    @Resource(name = "formSumRepository")
+    FormSumRepository formSumRepository;
+
 
     @Override
     public BudgetFrom getBudgetFromByPid(String pid) {
@@ -32,11 +39,20 @@ public class BudgetFromServiceImpl implements BudgetFromService{
         return budgetFromRepository.getBudgetFromByProjectId(pid);
     }
 
+
+
+
     @Override
     public boolean addBudgetFrom(BudgetFrom budgetFrom) {
 
         if( this.getBudgetFromByPid(budgetFrom.getProjectId())==null){
             budgetFromRepository.save(budgetFrom);
+            //添加到总预算执行表中
+            BudgetFormSum budgetFormSum= OtherUtil.setFormSum(UuidUtil.getRandomUuid(),budgetFrom.getProjectId(),budgetFrom.getCreateTime(),
+                    budgetFrom.getCreateUser(),Constants.FORM_PRO,UserAuthority.Not_EXAMINE_APPROVE,budgetFrom.getSumFee());
+
+            formSumRepository.save(budgetFormSum);
+
             return true;
         }
 

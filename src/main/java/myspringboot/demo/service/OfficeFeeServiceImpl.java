@@ -1,13 +1,21 @@
 package myspringboot.demo.service;
 
 
+import myspringboot.demo.asm.Constants;
+import myspringboot.demo.bean.BudgetFormSum;
 import myspringboot.demo.bean.OfficeFeeFrom;
+import myspringboot.demo.bean.UserAuthority;
+import myspringboot.demo.dao.repository.FormSumRepository;
 import myspringboot.demo.dao.repository.OfficeFreeRepository;
+import myspringboot.demo.util.OtherUtil;
+import myspringboot.demo.util.UuidUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
 
 @Transactional
 @Service
@@ -15,6 +23,9 @@ public class OfficeFeeServiceImpl implements OfficeFeeService {
 
     @Autowired
     OfficeFreeRepository officeFreeRepository;
+
+    @Resource(name = "formSumRepository")
+    FormSumRepository formSumRepository;
 
     @Override
     public boolean addExden(String sql) {
@@ -49,6 +60,17 @@ public class OfficeFeeServiceImpl implements OfficeFeeService {
     @Override
     public void addBudgetFrom(OfficeFeeFrom budgetFrom) {
         officeFreeRepository.save(budgetFrom);
+        BudgetFormSum budgetFormSum= OtherUtil.setFormSum(UuidUtil.getRandomUuid(),budgetFrom.getId(),budgetFrom.getCreateTime(),
+                budgetFrom.getCreateUser(),Constants.FORM_OFFICE,UserAuthority.Not_EXAMINE_APPROVE,budgetFrom.getPrice());
+        formSumRepository.save(budgetFormSum);
 
     }
+
+    @Override
+    public OfficeFeeFrom findById(String id) {
+
+        return officeFreeRepository.findById(id);
+    }
+
+
 }

@@ -28,7 +28,8 @@ public class Dateutil {
      * @return
      */
     public static  Long getTime(){
-        Long time=new Date().getTime();
+        Long time= System.currentTimeMillis()*10000;;
+
         return time;
     }
 

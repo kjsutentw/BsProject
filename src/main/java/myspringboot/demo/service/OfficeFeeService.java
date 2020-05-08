@@ -8,5 +8,7 @@ public interface OfficeFeeService extends FormService {
 
     void  addBudgetFrom(OfficeFeeFrom budgetFrom);
 
+    OfficeFeeFrom findById(String id);
+
 
 }

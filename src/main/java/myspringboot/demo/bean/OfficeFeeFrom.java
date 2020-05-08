@@ -13,8 +13,7 @@ public class OfficeFeeFrom implements Serializable {
 
     @Id
     @Column(name="id",nullable = false)
-    @GeneratedValue
-    private Integer id;
+    private String id;
 
     private String name;
 
@@ -22,13 +21,15 @@ public class OfficeFeeFrom implements Serializable {
 
     private Integer unitPrice;//单价
 
-    private String price;
+    private Integer price;
 
     private String department;
 
     private String feeExplain;//说明
 
     private String memo;
+
+    private Integer sumFee;//合计
 
     private String ext;//扩展字段(json字符串形式)
 

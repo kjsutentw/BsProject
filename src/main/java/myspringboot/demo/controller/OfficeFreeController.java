@@ -4,12 +4,16 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import myspringboot.demo.asm.Constants;
+import myspringboot.demo.bean.BudgetFormSum;
 import myspringboot.demo.bean.OfficeFeeFrom;
 import myspringboot.demo.bean.Result;
 import myspringboot.demo.bean.UserAuthority;
+import myspringboot.demo.service.FormSumService;
 import myspringboot.demo.service.OfficeFeeService;
 import myspringboot.demo.util.Dateutil;
 import myspringboot.demo.util.ReturnUtil;
+import myspringboot.demo.util.UuidUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.util.StringUtils;
@@ -24,6 +28,10 @@ public class OfficeFreeController {
 
     @Autowired
     OfficeFeeService officeFeeService;
+
+
+    @Autowired
+    FormSumService formSumService;
 
     /**
      * 分页查询我的办公费用表
@@ -60,11 +68,16 @@ public class OfficeFreeController {
 
         String jsonString = JSON.toJSONString(jsonpObject);
         OfficeFeeFrom budgetFrom=JSONObject.parseObject(jsonString,OfficeFeeFrom.class);
-       if(StringUtils.isEmpty(budgetFrom.getName()))
+       if(StringUtils.isEmpty(budgetFrom.getName())){
            return null;
+       }
+
+        budgetFrom.setId(UuidUtil.getRandomUuid());
         budgetFrom.setCreateTime(Dateutil.getTime());
-        budgetFrom.setStatus(UserAuthority.Not_EXAMINE_APPROVE);//设置成未审批状态
+        //设置成未审批状态
+        budgetFrom.setStatus(UserAuthority.Not_EXAMINE_APPROVE);
         officeFeeService.addBudgetFrom(budgetFrom);
+
 
         result.setCode(200);
         return result;

@@ -9,6 +9,7 @@ import myspringboot.demo.util.Dateutil;
 import myspringboot.demo.util.ExcelFileUtil;
 import myspringboot.demo.util.Nsqlutil;
 import myspringboot.demo.util.RRException;
+import net.sf.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,29 +56,12 @@ public class DemoApplicationTests {
 
 //        new ExcelFileUtil().ReadFile("C:\\Users\\Administrator\\Desktop\\Excel\\专业建设表.xlsx");
 
-        String type="";
-        switch ("5.0"){
-            case "5.0":
-                type="1";
-                break;
-            case "4.0":
-                type="2";
-                break;
-            case "3.0":
-                type="2";
-                break;
-            case "2.0":
-                type="3";
-                break;
-            case "1.0":
-                type="4";
-                break;
-            default:type="2";
-        }
 
-
-        System.out.println(type);
-
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("aaa",123);
+        Object obj=jsonObject.get("123");
+        if(obj==null)
+            System.out.println("obj为空");
 
     }
 
