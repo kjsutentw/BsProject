@@ -24,6 +24,8 @@ public class UserAuthority {
     //已完成
     public static String COMPLETED="00655";
 
+    public static String WITHDRAW="00011";
+
 
 
 

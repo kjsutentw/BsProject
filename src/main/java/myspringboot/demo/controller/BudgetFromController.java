@@ -7,17 +7,20 @@ import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+
 import myspringboot.demo.asm.BudgetConstants;
 import myspringboot.demo.asm.Constants;
+
 import myspringboot.demo.bean.*;
 import myspringboot.demo.bean.log.BudgetLog;
 import myspringboot.demo.service.BudgetFromExtendService;
 import myspringboot.demo.service.BudgetFromService;
 import myspringboot.demo.service.BudgetLogService;
-import myspringboot.demo.service.FormSumService;
+
 import myspringboot.demo.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -48,7 +51,7 @@ public class BudgetFromController {
 
 
 
-
+    @PreAuthorize("hasAuthority('budget')")
     @ApiOperation(value = "通过项目编号查找预算表单", notes = "通过项目编号查找预算表单")
     @PostMapping("/select/byid")
     public Object getBudgetFromByProjectId(@ApiParam(required = true, name = "Json格式带有pid", value = "项目编号pid") @RequestBody JSONObject jsonpObject){
@@ -100,7 +103,7 @@ public class BudgetFromController {
     }
 
 
-
+    @PreAuthorize("hasAuthority('budget')")
     @ApiOperation(value = "添加预算表单", notes = "添加预算表单")
     @PostMapping("/addfrom")
     public Object addBudgetFrom(@ApiParam(required = true, name = "预算表单数据", value = "预算表单数据") @RequestBody JSONObject jsonpObject){
@@ -127,8 +130,7 @@ public class BudgetFromController {
         String sql= OtherUtil.buildSql("budgetfrom_extend_other",extendDataJson,punid);
         boolean bo= budgetFromExtendService.addExden(sql);
         if(bo&&isok){
-            BudgetLog budgetLog=OtherUtil.setAddLog(punid);
-            budgetLogService.add(budgetLog);
+            budgetLogService.add(OtherUtil.setAddLog(punid));
             result.setCode(200);
             return result;
         }
@@ -140,7 +142,7 @@ public class BudgetFromController {
     }
 
 
-
+    @PreAuthorize("hasAuthority('budget')")
     @ApiOperation(value = "修改预算表单", notes = "修改预算表单")
     @PostMapping("/updatafrom")
     public Object updataBudgetFrom(@ApiParam(required = true, name = "修改表单数据", value = "修改表单数据") @RequestBody JSONObject jsonpObject){
@@ -160,6 +162,7 @@ public class BudgetFromController {
         return result;
     }
 
+    @PreAuthorize("hasAuthority('budget')")
     @ApiOperation(value = "分页查询专业预算表单", notes = "查询预算表单")
     @PostMapping("/select")
     public Object selectBudgetFrom(@ApiParam(required = true, name = "分页查询预算表单", value = "分页查询预算表单") @RequestBody JSONObject jsonpObject){
@@ -254,27 +257,28 @@ public class BudgetFromController {
 
 
     @PostMapping("/update/status")
-    public Object updateStatus(@RequestBody JSONObject jsonpObject){
+    public Object updateStatus(@RequestBody JSONObject jsonpObject) {
 
-        String  punid= jsonpObject.getString("punid");
-        String  status= jsonpObject.getString("status");
+        String punid = jsonpObject.getString("punid");
+        String status = jsonpObject.getString("status");
+        System.out.println(punid + status);
+        Result result = new Result();
 
-        System.out.println(punid+status);
-        Result result=new Result();
+        boolean bo = budgetFromService.updataStatus(punid, status);
+        if (bo) {
+            if ("00011".equals(status)) {
+                BudgetLog budgetLog = OtherUtil.setLogWithdraw(punid);
+                budgetLogService.add(budgetLog);
 
-       boolean bo= budgetFromService.updataStatus(punid,status);
-       if(bo){
-           if("00011".equals(status)){
-            BudgetLog budgetLog= OtherUtil.setLogWithdraw(punid);
-            budgetLogService.add(budgetLog);
-           }
-           result.setCode(200);
-           return result;
-       }
-
+                if (UserAuthority.WITHDRAW.equals(status)) {
+                    budgetLogService.add(OtherUtil.setLogWithdraw(punid));
+                }
+                result.setCode(200);
+                return result;
+            }
+        }
         result.setCode(400);
         return result;
-
     }
 
 
@@ -282,9 +286,7 @@ public class BudgetFromController {
     public Object deleteForm(@RequestBody JSONObject jsonpObject){
 
         String  punid= jsonpObject.getString("punid");
-
         Result result=new Result();
-
         boolean bo= budgetFromService.deleteForm(punid);
         if(bo){
             budgetLogService.deletes(punid);
@@ -294,7 +296,6 @@ public class BudgetFromController {
 
         result.setCode(400);
         return result;
-
     }
 
 

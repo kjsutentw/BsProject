@@ -12,7 +12,9 @@ public class LaboratoryFeeForm {
 
     @Id
     @Column(name="id",nullable = false)
+
     private Integer id;
+
 
     //续建
     private String conBuild;
@@ -36,8 +38,10 @@ public class LaboratoryFeeForm {
 
     //备注
     private String memo;
+
     //扩展字段(json字符串形式)
     private String ext;
+
     //创建表单的人
     private String createUser;
 

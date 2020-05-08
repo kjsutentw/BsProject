@@ -36,11 +36,13 @@ public class User {
     private String userAuthority;
     private String memo;
 
+
     private String roles;
 
     public List<String> getroles(){
         return null;
     }
+
 
 
 }

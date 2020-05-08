@@ -3,8 +3,6 @@ package myspringboot.demo.service;
 import com.alibaba.fastjson.JSONObject;
 import myspringboot.demo.asm.Constants;
 import myspringboot.demo.bean.BudgetFormSum;
-import myspringboot.demo.bean.BudgetFromExtendResult;
-import myspringboot.demo.bean.UserAuthority;
 import myspringboot.demo.dao.repository.BudgetFromRepository;
 import myspringboot.demo.dao.repository.FormSumRepository;
 import myspringboot.demo.dao.repository.OfficeFreeRepository;
@@ -18,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -105,6 +102,7 @@ public class FormSumServiceImpl implements FormSumService {
                 JSONObject jsonObject=new JSONObject();
                 jsonObject.put("sum_fee",rs.getInt("sum_fee"));
                 jsonObject.put("count",rs.getInt("count"));
+                jsonObject.put("methos",rs.getInt("methos"));
                 return jsonObject;
             }
         });

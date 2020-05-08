@@ -74,7 +74,6 @@ public class OtherUtil {
 
     }
 
-
     /**
      * 注入到预算总表 提交状态
      */
@@ -125,6 +124,5 @@ public class OtherUtil {
         budgetLog.setLog(BudgetConstants.APPROVE_NO);
         return budgetLog;
     }
-
 
 }
