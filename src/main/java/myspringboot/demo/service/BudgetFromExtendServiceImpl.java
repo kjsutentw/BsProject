@@ -1,8 +1,7 @@
 package myspringboot.demo.service;
 
-import myspringboot.demo.bean.BudgetFrom;
-import myspringboot.demo.bean.BudgetFromExtend;
-import myspringboot.demo.bean.BudgetFromExtendResult;
+import myspringboot.demo.bean.budget.BudgetFromExtend;
+import myspringboot.demo.bean.budget.BudgetFromExtendResult;
 import myspringboot.demo.dao.repository.BudgetFromExtendRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

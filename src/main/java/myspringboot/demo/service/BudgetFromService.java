@@ -1,6 +1,6 @@
 package myspringboot.demo.service;
 
-import myspringboot.demo.bean.BudgetFrom;
+import myspringboot.demo.bean.budget.BudgetFrom;
 import org.springframework.data.domain.Page;
 import org.springframework.web.multipart.MultipartFile;
 

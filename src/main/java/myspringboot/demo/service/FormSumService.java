@@ -1,7 +1,7 @@
 package myspringboot.demo.service;
 
 import com.alibaba.fastjson.JSONObject;
-import myspringboot.demo.bean.BudgetFormSum;
+import myspringboot.demo.bean.budget.BudgetFormSum;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

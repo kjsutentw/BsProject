@@ -1,4 +1,4 @@
-package myspringboot.demo.bean.log;
+package myspringboot.demo.bean.budget;
 
 import lombok.Data;
 
@@ -23,6 +23,8 @@ public class BudgetLog implements Serializable {
     private Integer budgetSort;
 
     private String Log;
+
+    private String userCreate;
 
 
 }

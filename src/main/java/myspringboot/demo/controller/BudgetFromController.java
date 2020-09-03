@@ -8,11 +8,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-import myspringboot.demo.asm.BudgetConstants;
-import myspringboot.demo.asm.Constants;
-
 import myspringboot.demo.bean.*;
-import myspringboot.demo.bean.log.BudgetLog;
+import myspringboot.demo.bean.budget.BudgetFrom;
+import myspringboot.demo.bean.budget.BudgetFromExtend;
+import myspringboot.demo.bean.budget.BudgetFromExtendResult;
+import myspringboot.demo.bean.budget.BudgetLog;
 import myspringboot.demo.service.BudgetFromExtendService;
 import myspringboot.demo.service.BudgetFromService;
 import myspringboot.demo.service.BudgetLogService;
@@ -127,10 +127,11 @@ public class BudgetFromController {
 
         //添加扩展字段数据
         String punid=budgetFrom.getProjectId();
-        String sql= OtherUtil.buildSql("budgetfrom_extend_other",extendDataJson,punid);
-        boolean bo= budgetFromExtendService.addExden(sql);
+//        String sql= OtherUtil.buildSql("budgetfrom_extend_other",extendDataJson,punid);
+//        boolean bo= budgetFromExtendService.addExden(sql);
+        boolean bo=true;
         if(bo&&isok){
-            budgetLogService.add(OtherUtil.setAddLog(punid));
+            budgetLogService.add(OtherUtil.setAddLog(punid,"专业建设支出费用预算"));
             result.setCode(200);
             return result;
         }
@@ -236,7 +237,7 @@ public class BudgetFromController {
             file.mkdirs();
         }
         String oldName = uploadFile.getOriginalFilename();
-        String newName = username+"_"+Dateutil.getnowtime()+"_"+UUID.randomUUID().toString() + oldName.substring(oldName.indexOf("."), oldName.length());
+        String newName = username+"_"+Dateutil.getTime()+"_"+UUID.randomUUID().toString() + oldName.substring(oldName.indexOf("."), oldName.length());
         try {
             uploadFile.transferTo(new File(file,newName));
             String path = realPath+"\\"+ newName;

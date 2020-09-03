@@ -1,8 +1,7 @@
 package myspringboot.demo.service;
 
-import myspringboot.demo.bean.BudgetFromExtend;
-import myspringboot.demo.bean.BudgetFromExtendResult;
-import org.springframework.stereotype.Service;
+import myspringboot.demo.bean.budget.BudgetFromExtend;
+import myspringboot.demo.bean.budget.BudgetFromExtendResult;
 
 import java.util.List;
 

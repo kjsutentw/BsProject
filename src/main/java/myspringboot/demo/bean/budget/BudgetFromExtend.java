@@ -1,4 +1,4 @@
-package myspringboot.demo.bean;
+package myspringboot.demo.bean.budget;
 
 import lombok.Data;
 

@@ -9,8 +9,10 @@ import io.swagger.annotations.ApiParam;
 import myspringboot.demo.bean.LaboratoryFeeForm;
 import myspringboot.demo.bean.Result;
 import myspringboot.demo.bean.UserAuthority;
+import myspringboot.demo.service.BudgetLogService;
 import myspringboot.demo.service.LaboratoryFormService;
 import myspringboot.demo.util.Dateutil;
+import myspringboot.demo.util.OtherUtil;
 import myspringboot.demo.util.ReturnUtil;
 import myspringboot.demo.util.UuidUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,9 @@ public class LaboratoryFormController {
     @Autowired
     LaboratoryFormService laboratoryFormService;
 
+    @Autowired
+    BudgetLogService budgetLogService;
+
 
     @PreAuthorize("hasAuthority('budget')")
     @ApiOperation(value = "添加实验室费用表单", notes = "添加实验室费用表单")
@@ -56,6 +61,8 @@ public class LaboratoryFormController {
         //设置成未审批状态
         budgetFrom.setStatus(UserAuthority.Not_EXAMINE_APPROVE);
         laboratoryFormService.add(budgetFrom);
+
+        budgetLogService.add(OtherUtil.setAddLog(budgetFrom.getId(),"实验室费用预算"));
 
 
         result.setCode(200);

@@ -12,8 +12,7 @@ public class LaboratoryFeeForm {
 
     @Id
     @Column(name="id",nullable = false)
-
-    private Integer id;
+    private String id;
 
 
     //续建

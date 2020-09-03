@@ -3,6 +3,7 @@ package myspringboot.demo.jwt;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import myspringboot.demo.bean.LoginUser;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -118,7 +119,7 @@ public class JwtTokenUtil implements Serializable {
      * @return 是否有效
      */
     public Boolean validateToken(String token, UserDetails userDetails) {
-        JwtUser user = (JwtUser) userDetails;
+        LoginUser user = (LoginUser) userDetails;
         String username = getUsernameFromToken(token);
         return (username.equals(user.getUsername()) && !isTokenExpired(token));
     }

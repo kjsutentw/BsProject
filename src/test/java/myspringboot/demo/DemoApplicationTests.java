@@ -1,14 +1,9 @@
 package myspringboot.demo;
 
-import myspringboot.demo.bean.BudgetFromExtend;
-import myspringboot.demo.bean.BudgetFromExtendResult;
+import myspringboot.demo.bean.budget.BudgetFromExtend;
 import myspringboot.demo.service.BudgetFromExtendService;
-import myspringboot.demo.service.BudgetFromService;
 import myspringboot.demo.service.UserService;
 import myspringboot.demo.util.Dateutil;
-import myspringboot.demo.util.ExcelFileUtil;
-import myspringboot.demo.util.Nsqlutil;
-import myspringboot.demo.util.RRException;
 import net.sf.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,9 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
-import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -52,16 +46,9 @@ public class DemoApplicationTests {
 
 
     @Test
-    public void runtest4()  {
+    public void runtest4() throws InterruptedException {
 
 //        new ExcelFileUtil().ReadFile("C:\\Users\\Administrator\\Desktop\\Excel\\专业建设表.xlsx");
-
-
-        JSONObject jsonObject=new JSONObject();
-        jsonObject.put("aaa",123);
-        Object obj=jsonObject.get("123");
-        if(obj==null)
-            System.out.println("obj为空");
 
     }
 

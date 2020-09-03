@@ -13,6 +13,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Calendar;
 
 @RestController
 @RequestMapping("/pr")
@@ -64,6 +65,25 @@ public class TestController {
         result.setData(3663);
         return result;
 
+    }
+
+
+    public static void main(String[] args) throws InterruptedException {
+        Calendar nowCal = Calendar.getInstance();
+        System.out.println(nowCal.getTime());
+
+        Thread.currentThread().sleep(1000);
+
+        Calendar nowCal2 = Calendar.getInstance();
+        System.out.println(nowCal2.getTime());
+
+        if (nowCal2.before(nowCal)) {
+            System.out.println("在之前......");
+        }
+
+        if (nowCal.before(nowCal2)) {
+            System.out.println("在之前2......");
+        }
     }
 
 

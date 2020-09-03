@@ -3,10 +3,11 @@ package myspringboot.demo.util;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import myspringboot.demo.asm.BudgetConstants;
-import myspringboot.demo.asm.Constants;
-import myspringboot.demo.bean.BudgetFormSum;
-import myspringboot.demo.bean.UserAuthority;
-import myspringboot.demo.bean.log.BudgetLog;
+import myspringboot.demo.bean.budget.BudgetFormSum;
+import myspringboot.demo.bean.budget.BudgetLog;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 公共的方法调用类
@@ -77,12 +78,12 @@ public class OtherUtil {
     /**
      * 注入到预算总表 提交状态
      */
-    public static BudgetLog setAddLog(String punid){
+    public static BudgetLog setAddLog(String punid,String et){
         BudgetLog budgetLog=new BudgetLog();
         budgetLog.setUnid(UuidUtil.getRandomUuid());
         budgetLog.setPunid(punid);
         budgetLog.setBudgetSort(BudgetConstants.ADD_SORT);
-        budgetLog.setLog(BudgetConstants.COMMIT);
+        budgetLog.setLog(BudgetConstants.COMMIT+et);
         return budgetLog;
 
     }
@@ -123,6 +124,15 @@ public class OtherUtil {
         budgetLog.setBudgetSort(BudgetConstants.APPROVE_SORT);
         budgetLog.setLog(BudgetConstants.APPROVE_NO);
         return budgetLog;
+    }
+
+    public static void main(String[] args) {
+        for(int i=0;i<15;i++){
+            String str= UNIDGenerate.getUnid();
+            String time = new SimpleDateFormat("yyyy-MM-dd-HH-mm:ss:ms").format(new Date());
+            System.out.println("unid:"+str+",type:ais_unit_project,name:"+"企业名称"+"value:unitName"+"创建时间:"+time);
+        }
+
     }
 
 }

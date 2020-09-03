@@ -2,7 +2,7 @@ package myspringboot.demo.service;
 
 import com.alibaba.fastjson.JSONObject;
 import myspringboot.demo.asm.Constants;
-import myspringboot.demo.bean.BudgetFormSum;
+import myspringboot.demo.bean.budget.BudgetFormSum;
 import myspringboot.demo.dao.repository.BudgetFromRepository;
 import myspringboot.demo.dao.repository.FormSumRepository;
 import myspringboot.demo.dao.repository.OfficeFreeRepository;

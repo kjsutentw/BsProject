@@ -33,6 +33,7 @@ public class UserController {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
+    @Autowired
     private JwtAuthService jwtService;
 
 
@@ -84,11 +85,7 @@ public class UserController {
         return result;
     }
 
-    @RequestMapping(value = "/refresh")
-    public Object refresh(@RequestHeader("${jwt.header}") String token){
-        String newToken=jwtService.refreshToken(token);
-        return Result.seccess(newToken);
-    }
+
 
 
     @RequestMapping(value = "/register",method = RequestMethod.POST)

@@ -1,6 +1,5 @@
-package myspringboot.demo.bean;
+package myspringboot.demo.bean.budget;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;

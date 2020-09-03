@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import myspringboot.demo.asm.Constants;
-import myspringboot.demo.bean.BudgetFormSum;
+import myspringboot.demo.bean.budget.BudgetFormSum;
 import myspringboot.demo.bean.Result;
 import myspringboot.demo.bean.UserAuthority;
 import myspringboot.demo.service.BudgetFromService;
@@ -73,8 +73,6 @@ public class BudgetController {
             jsonObject.put("createTime",times);
             jsonObjectList.add(jsonObject);
         }
-
-
 
         rspJson.put("data",jsonObjectList);
         result.setCode(200);

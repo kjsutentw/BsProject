@@ -3,7 +3,7 @@ package myspringboot.demo.controller;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import myspringboot.demo.bean.BudgetFrom;
+import myspringboot.demo.bean.budget.BudgetFrom;
 import myspringboot.demo.bean.Result;
 import myspringboot.demo.service.BudgetFromExtendService;
 import myspringboot.demo.service.BudgetFromService;

@@ -1,6 +1,7 @@
 package myspringboot.demo.jwt;
 
 import myspringboot.demo.bean.User;
+import myspringboot.demo.bean.UserAuthority;
 import myspringboot.demo.dao.repository.UserRepository;
 import myspringboot.demo.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.getByName(username);
+        User user = userService.getByName(username, UserAuthority.ORDINARY);
         if (user == null) {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
         } else {

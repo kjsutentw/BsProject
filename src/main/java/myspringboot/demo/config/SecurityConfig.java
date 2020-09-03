@@ -1,7 +1,8 @@
 package myspringboot.demo.config;
 
+import myspringboot.demo.jwt.JwtAuthenticationTokenFilter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
-import myspringboot.demo.config.jwt.JwtAuthenticationTokenFilter;
 import myspringboot.demo.util.JWTPasswordEncoder;
 
 import org.springframework.context.annotation.Bean;
@@ -23,8 +24,7 @@ import javax.annotation.Resource;
 @EnableGlobalMethodSecurity(prePostEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-
-    @Resource
+    @Autowired
     private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
 
     @Resource(name = "UserDetailsServiceImpl")
@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/*/api-docs").anonymous()
                 .antMatchers("/druid/**").anonymous()
                 .antMatchers(HttpMethod.OPTIONS,
-                      "/api/budget/**"
+                      "/api/budget/**","/api/log/**"
                 ).permitAll()
                 // 除上面外的所有请求全部需要鉴权认证
 //                .antMatchers("/api/budget/**").permitAll()

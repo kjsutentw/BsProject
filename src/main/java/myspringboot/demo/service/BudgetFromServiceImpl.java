@@ -1,8 +1,8 @@
 package myspringboot.demo.service;
 
 import myspringboot.demo.asm.Constants;
-import myspringboot.demo.bean.BudgetFormSum;
-import myspringboot.demo.bean.BudgetFrom;
+import myspringboot.demo.bean.budget.BudgetFormSum;
+import myspringboot.demo.bean.budget.BudgetFrom;
 import myspringboot.demo.bean.UserAuthority;
 import myspringboot.demo.dao.repository.BudgetFromRepository;
 import myspringboot.demo.dao.repository.FormSumRepository;

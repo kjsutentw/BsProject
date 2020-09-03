@@ -1,6 +1,6 @@
 package myspringboot.demo.dao.repository;
 
-import myspringboot.demo.bean.BudgetFromExtend;
+import myspringboot.demo.bean.budget.BudgetFromExtend;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
